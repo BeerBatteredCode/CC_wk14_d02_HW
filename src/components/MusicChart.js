@@ -6,6 +6,7 @@ const MusicChart = ({music}) => {
         return (
             <ol key={index}>
                 <h3>{music["im:name"].label}</h3>
+                <h4>{music["im:artist"].label}</h4>
             </ol>
         )
     })
