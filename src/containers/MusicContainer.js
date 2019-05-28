@@ -1,4 +1,5 @@
 import React, {Container} from 'react';
+import MusicSelector from '../components/MusicSelector';
 
 class MusicContainer extends Container {
     constructor(props){
