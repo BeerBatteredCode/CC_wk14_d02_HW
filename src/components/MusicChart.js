@@ -4,16 +4,16 @@ const MusicChart = ({music}) => {
 
     const musicList = music.map((music, index) => {
         return (
-            <ol key={index}>
+            <li key={index}>
                 <h3>{music["im:name"].label}</h3>
                 <h4>{music["im:artist"].label}</h4>
-            </ol>
+            </li>
         )
     })
 
     return(
         <div className="musicChart">
-            <li>{musicList}</li>
+            <ol>{musicList}</ol>
         </div>
     )
 }
