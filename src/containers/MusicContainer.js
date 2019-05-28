@@ -1,14 +1,13 @@
-import React, {Container} from 'react';
-import MusicSelector from '../components/MusicSelector';
+import React, {Component} from 'react';
+import MusicChart from '../components/MusicChart';
 
-class MusicContainer extends Container {
+class MusicContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            music = [],
-            selectedSong = null
+            music: [],
+            selectedSong: null
         };
-        this.selectedSong = this.selectedSong.bind(this);
     }
 
     componentDidMount(){
@@ -16,7 +15,7 @@ class MusicContainer extends Container {
         fetch(url)
         .then(res => res.json())
         .then((music) => {
-            this.setState({music: music});
+            this.setState({music: music.feed.entry});
         });
     }
 
@@ -24,11 +23,9 @@ class MusicContainer extends Container {
         return(
             <div className="music-container">
                 <h3>Music Library</h3>
-                <MusicSelector
+                    <MusicChart
                     music={ this.state.music }
-                    onMusicSelected={ this.state.selectedSong }/>
-                <MusicDetail
-                    music={ this.state.selectedSong }/>
+                    />
             </div>
         )
     }
